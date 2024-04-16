@@ -23,6 +23,7 @@
                         <h3>¿Aun no tienes una cuenta?</h3>
                         <p>Registrate para Inicia sesión</p>
                         <button id="btn-registrarse">Registrarse</button>
+                        
                     </div>
                 </div>
                 <div class="contenedor__login-registro">
@@ -34,13 +35,31 @@
                         <a href="modulo_presentacion.php" class="boton_login">Ingresar</a>
 
                     </form>
-                    <form action="store.php" method="POST" class="formulario__registro" autocomplete="off">
+                    <form method="POST" class="formulario__registro">
                         <h2>Registrarse</h2>
-                        <input type="text" require name="nombre[]" placeholder="Nombre Completo">
-                        <input type="text" require name="correo[]" placeholder="Correo Electronico">
-                        <input type="text" require name="usuario[]" placeholder="Usuario">
-                        <input type="password" require name="contraseña[]" placeholder="Contraseña">
-                        <button type="submit" name="registrar">Registrarse</button>
+                        <?php
+                        include("database/conexion.php");
+                        include("controlador_registro_usuario.php");
+                        ?>
+                        <div class="padre">
+                            <div class="nombre">
+                                <input type="text" name="nombre" placeholder="Nombre Completo">
+                            </div>
+                            <div class="correo">
+                                <input type="text" name="correo" placeholder="Correo Electronico">
+                            </div>
+                            <div class="usuario">
+                                <input type="text" name="usuario" placeholder="Usuario">
+                            </div>
+                            <div>
+                                <input type="password" name="contraseña" placeholder="Contraseña">
+                            </div>
+                            <div>
+                                <input class="boton" type="submit" value="Registro" name="registrar">
+                            </div>
+
+                        </div>
+                        
                     </form>
                 </div>
             </div>

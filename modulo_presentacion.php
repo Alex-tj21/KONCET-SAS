@@ -322,60 +322,62 @@
 </head>
 <?php
 // define variables and set to empty values
-$cantidadErr = $cargaErr = $conductorErr = $longitudErr = $potenciaErr  = $productoErr = $tuberiaErr = "";
-$cantidad = $carga = $conductor = $longitud = $potencia = $producto =$tuberia = "";
+$cantidadErr = $cargaErr = $conductorErr = $longitudErr = $potenciaErr = $productoErr = $tuberiaErr = "";
+$cantidad = $carga = $conductor = $longitud = $potencia = $producto = $tuberia = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["id_producto"])) {
-    $productoErr = "Campo requerido";
-  } else {
-    $producto = test_input($_POST["id_producto"]);
-  }
+    if (empty($_POST["id_producto"])) {
+        $productoErr = "Campo requerido";
+    } else {
+        $producto = test_input($_POST["id_producto"]);
+    }
 
-  if (empty($_POST["v_tipo_tuberia[]"])) {
-    $tuberiaErr = "Campo requerido";
-  } else {
-    $tuberia = test_input($_POST["v_tipo_tuberia[]"]);
-  }
+    if (empty($_POST["v_tipo_tuberia[]"])) {
+        $tuberiaErr = "Campo requerido";
+    } else {
+        $tuberia = test_input($_POST["v_tipo_tuberia[]"]);
+    }
 
-  if (empty($_POST["cantidad"])) {
-    $cantidadErr = "Campo requerido";
-  } else {
-    $cantidad = test_input($_POST["cantidad"]);
-  }
-  
-  if (empty($_POST["id_carga"])) {
-    $cargaErr = "Campo requerido";
-  } else {
-    $carga = test_input($_POST["id_carga"]);
-  }
-    
-  if (empty($_POST["v_conductor"])) {
-    $conductorErr = "Campo requerido";
-  } else {
-    $conductor = test_input($_POST["v_conductor"]);
-  }
+    if (empty($_POST["cantidad"])) {
+        $cantidadErr = "Campo requerido";
+    } else {
+        $cantidad = test_input($_POST["cantidad"]);
+    }
 
-  if (empty($_POST["v_longitud"])) {
-    $longitudErr = "Campo requerido";
-  } else {
-    $longitud = test_input($_POST["v_longitud"]);
-  }
+    if (empty($_POST["id_carga"])) {
+        $cargaErr = "Campo requerido";
+    } else {
+        $carga = test_input($_POST["id_carga"]);
+    }
 
-  if (empty($_POST["factor_potencia"])) {
-    $potenciaErr = "Campo requerido";
-  } else {
-    $potencia = test_input($_POST["factor_potencia"]);
-  }
+    if (empty($_POST["v_conductor"])) {
+        $conductorErr = "Campo requerido";
+    } else {
+        $conductor = test_input($_POST["v_conductor"]);
+    }
+
+    if (empty($_POST["v_longitud"])) {
+        $longitudErr = "Campo requerido";
+    } else {
+        $longitud = test_input($_POST["v_longitud"]);
+    }
+
+    if (empty($_POST["factor_potencia"])) {
+        $potenciaErr = "Campo requerido";
+    } else {
+        $potencia = test_input($_POST["factor_potencia"]);
+    }
 }
 
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
 ?>
+
 <body>
     <header>
         <div class="container__menu">
@@ -405,82 +407,98 @@ function test_input($data) {
         <div class="contenido">
             <div class="contenido-item" style="display: block;">
                 <h2>Mision</h2>
-                <p> Está enfocada en la prestación de servicios de asesoría, planeación, diseño y construcción de proyectos de ingeniería, buscando la satisfacción de nuestros clientes, mediante la implementación de avances tecnológicos. 
+                <p> Está enfocada en la prestación de servicios de asesoría, planeación, diseño y construcción de
+                    proyectos de ingeniería, buscando la satisfacción de nuestros clientes, mediante la implementación
+                    de avances tecnológicos.
                 </p>
                 <h2>Vision</h2>
-                <p>Ser una empresa líder de ingeniería y arquitectura que ofrezca a sus clientes una constante innovación tecnológica, comprometida con el medio ambiente y su desarrollo sostenible, bajo estándares de calidad internacional al continente americano para el año 2025. 
-                   Dentro de los avances establecidos en KONCET S.A.S alineados con las políticas empresariales, a la fecha se han establecido procedimientos y procesos aplicando metodologías como Scrum y Kanban, con asesoría dadas por Entidades cómo el Ministerio de Comercio, Industria y Turismo MINCIT y su programa Colombia Productiva/fábricas de productividad, Secretaria Distrital de Desarrollo Económico de Bogotá y la Cámara de Comercio de Bogotá mediante la iniciativa Clúster Energía Vicepresidencia de Competitividad.  
+                <p>Ser una empresa líder de ingeniería y arquitectura que ofrezca a sus clientes una constante
+                    innovación tecnológica, comprometida con el medio ambiente y su desarrollo sostenible, bajo
+                    estándares de calidad internacional al continente americano para el año 2025.
+                    Dentro de los avances establecidos en KONCET S.A.S alineados con las políticas empresariales, a la
+                    fecha se han establecido procedimientos y procesos aplicando metodologías como Scrum y Kanban, con
+                    asesoría dadas por Entidades cómo el Ministerio de Comercio, Industria y Turismo MINCIT y su
+                    programa Colombia Productiva/fábricas de productividad, Secretaria Distrital de Desarrollo Económico
+                    de Bogotá y la Cámara de Comercio de Bogotá mediante la iniciativa Clúster Energía Vicepresidencia
+                    de Competitividad.
                 </p>
             </div>
             <div class="contenido-item">
                 <h2>Quienes somos</h2>
-                <p>Somos una empresa Colombiana que desde el año 2014 presta asesorías, diseños, construcciones e interventorías de los sistemas eléctricos y de telecomunicaciones, a nivel nacional. Además, prestamos soluciones técnicas, eficientes y de calidad para satisfacer las necesidades de nuestros clientes, con estándares Nacionales e Internacionales.
-                   Implementamos RPA e IA en nuestros procesos, preparándonos para la Internacionalización.
+                <p>Somos una empresa Colombiana que desde el año 2014 presta asesorías, diseños, construcciones e
+                    interventorías de los sistemas eléctricos y de telecomunicaciones, a nivel nacional. Además,
+                    prestamos soluciones técnicas, eficientes y de calidad para satisfacer las necesidades de nuestros
+                    clientes, con estándares Nacionales e Internacionales.
+                    Implementamos RPA e IA en nuestros procesos, preparándonos para la Internacionalización.
                 </p>
             </div>
             <div class="contenido-item" style="overflow-x: hidden; overflow-y: auto; height: 38em; border: 1px solid">
                 <div class="card card-body">
-                    <form method="post" action="servidor-ejemplo" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form method="post" action="servidor-ejemplo">
                         <fieldset>
                             <legend>Consulta</legend>
                             <div class="form-control">
                                 <div class="datos">
+                                    <?php
+                                    include("database/conexion.php");
+                                    include("registroCargaUnitaria.php");
+                                    ?>
                                     <label for="name">Usuario:</label>
-                                    <input type="text" require name="v_usuario[]" class="form-control"
-                                        placeholder="usuario" autofocus>
+                                    <input type="text" name="usuario" class="form-control" placeholder="usuario"
+                                        autofocus>
                                     <label for="email">Tipo producto:</label>
                                     <br>
-                                    <select class="form-control-lista" require name="id_producto[]" autofocus>
+                                    <select class="form-control-lista" name="producto" autofocus>
                                         <option value="" default selected>Seleccionar producto</option>
                                         <option value="1">Toma doble</option>
                                         <option value="2">Toma corriente</option>
                                         <option value="3">Panel cuadrado</option>
                                     </select>
-                                    <span class="error">* <?php echo $productoErr;?></span>
+
                                     <br>
                                     <label for="message">Tipo tuberia</label>
                                     <br>
-                                    <select class="form-control-lista" require name="v_tipo_tuberia[]" autofocus>
+                                    <select class="form-control-lista" name="tipo_tuberia" autofocus>
                                         <option value="" default selected>Seleccionar tipo tuberia</option>
                                         <option value="1">PVC</option>
                                         <option value="2">Cobre</option>
                                         <option value="3">Panel cuadrado</option>
                                     </select>
-                                    <span class="error">* <?php echo $tuberiaErr;?></span>
+
                                     <br>
                                     <label for="message">Longitud:</label>
-                                    <input type="text" require name="v_longitud[]" class="form-control"
-                                        placeholder="longitud" autofocus>
-                                    <span class="error">* <?php echo $longitudErr;?></span>
-                                        
+                                    <input type="text" name="longitud" class="form-control" placeholder="longitud"
+                                        autofocus>
+
+
                                 </div>
                                 <div class="datos">
                                     <label for="email">Cantidad:</label>
-                                    <input type="text" require name="cantidad[]" class="form-control"
-                                        placeholder="cantidad" autofocus>
-                                    <span class="error">* <?php echo $cantidadErr;?></span>
-                                        
+                                    <input type="text" name="cantidad" class="form-control" placeholder="cantidad"
+                                        autofocus>
+
+
                                     <label for="message">Carga:</label>
-                                    <input type="text" require name="id_carga[]" class="form-control"
-                                        placeholder="carga" autofocus>
-                                        <span class="error">* <?php echo $cargaErr;?></span>
-                                        
+                                    <input type="text" name="id_carga" class="form-control" placeholder="carga"
+                                        autofocus>
+
+
                                     <label for="message">Tipo proteccion:</label>
-                                    <input type="text" require name="v_conductor[]" class="form-control"
-                                        placeholder="proteccion" autofocus>
-                                        <span class="error">* <?php echo $conductorErr;?></span>
-                                        
+                                    <input type="text" name="conductor" class="form-control" placeholder="proteccion"
+                                        autofocus>
+
+
                                     <label for="message">Potencia:</label>
-                                    <input type="text" require name="factor_potencia[]" class="form-control"
+                                    <input type="text" name="factor_potencia" class="form-control"
                                         placeholder="factor potencia rango 0 a 1" autofocus>
-                                        <span class="error">* <?php echo $potenciaErr;?></span>
-                                  
+
+
                                 </div>
                             </div>
-                            <input type="submit" name="insertar" value="insertar_registro" class="submit-btn"
-                            >
-                            
-                            
+                            <div>
+                                <input class="boton" type="submit" name="insertar" value="registro" class="submit-btn">
+                            </div>
+
                         </fieldset>
                     </form>
                 </div>
@@ -493,7 +511,8 @@ function test_input($data) {
             <h3>Informativo</h3>
             <p>Este es un mensaje de conclusiones.</p>
             <p>Este es un mensaje de conclusiones.</p>
-            <p>Este es un mensaje de conclusiones.Este es un mensaje de conclusiones.Este es un mensaje de conclusiones.</p>
+            <p>Este es un mensaje de conclusiones.Este es un mensaje de conclusiones.Este es un mensaje de conclusiones.
+            </p>
             <p>Este es un mensaje de conclusiones.</p>
             <p>Este es un mensaje de conclusiones.</p>
             <p>Este es un mensaje de conclusiones.</p>
@@ -537,65 +556,3 @@ function test_input($data) {
 
     </script>
 </body>
-
-<?php include("includes/footer.php");
-if (isset($_POST['insertar'])) {
-
-    $items1 = ($_POST['cantidad']);
-    $items2 = ($_POST['id_producto']);
-    $items3 = ($_POST['v_usuario']);
-    $items4 = ($_POST['id_carga']);
-    $items5 = ($_POST['v_tipo_tuberia']);
-    $items6 = ($_POST['v_conductor']);
-    $items7 = ($_POST['v_longitud']);
-    $items8 = ($_POST['factor_potencia']);
-    while (true) {
-        $item1 = current($items1);
-        $item2 = current($items2);
-        $item3 = current($items3);
-        $item4 = current($items4);
-        $item5 = current($items5);
-        $item6 = current($items6);
-        $item7 = current($items7);
-        $item8 = current($items8);
-
-        $cantidad = (($item1 !== false) ? $item1 : ", &nbsp;");
-        $producto = (($item2 !== false) ? $item2 : ", &nbsp;");
-        $usuario = (($item3 !== false) ? $item3 : ", &nbsp;");
-        $carga = (($item4 !== false) ? $item4 : ", &nbsp;");
-        $tipo_tuberia = (($item5 !== false) ? $item5 : ", &nbsp;");
-        $proteccion = (($item6 !== false) ? $item6 : ", &nbsp;");
-        $longitud = (($item7 !== false) ? $item7 : ", &nbsp;");
-        $factor_potencia = (($item8 !== false) ? $item8 : ", &nbsp;");
-
-
-        //$valores='('.$cantidad.'","'.$producto.'","'.$usuario.'","'.$carga.'","'.$voltaje.'","'.$tipo_tuberia.'","'.$proteccion.'","'.$longitud.'"),';
-        $valores = "('$cantidad','$producto','$usuario',$carga,'$tipo_tuberia','$proteccion','$longitud','$factor_potencia')";
-
-        //$valoresQ= substr($valores,0,-1);
-
-        $sql = ("CALL conversiones.calculo_vatios_amperios_v2  $valores");
-        $resultset2 = Conexion::ConexionBD()->prepare($sql) or die('Query failed: ' . pg_last_error());
-        echo $sql;
-        $resultset2->execute();
-
-        if ($resultset2) {
-            echo 'Datos insertados correctamente.';
-        }
-
-        $item1 = next($items1);
-        $item2 = next($items2);
-        $item3 = next($items3);
-        $item4 = next($items4);
-        $item5 = next($items5);
-        $item6 = next($items6);
-        $item7 = next($items7);
-        $item8 = next($items8);
-
-
-        if ($item1 === false && $item2 === false && $item3 === false && $item4 === false && $item5 === false && $item6 === false && $item7 === false && $item8 === false)
-            break;
-
-    }
-}
-?>
