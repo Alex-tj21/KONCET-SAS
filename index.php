@@ -20,6 +20,7 @@
                              <option value="2">Toma corriente</option>
                              <option value="3">Panel cuadrado</option>
                              <option value="3">interuptor pared</option>
+                             <option value="3">interuptor techo</option>
                            </select>
                         </div>
                            <p></p>
